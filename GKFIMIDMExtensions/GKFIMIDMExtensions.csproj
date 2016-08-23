@@ -1,0 +1,128 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <ProjectType>Local</ProjectType>
+    <ProductVersion>8.0.50727</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{81FBCE3B-398A-418F-A294-6B0415B6220F}</ProjectGuid>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ApplicationIcon />
+    <AssemblyKeyContainerName />
+    <AssemblyName>GKFIMIDMExtensions</AssemblyName>
+    <AssemblyOriginatorKeyFile />
+    <AssemblyOriginatorKeyMode>None</AssemblyOriginatorKeyMode>
+    <DefaultClientScript>JScript</DefaultClientScript>
+    <DefaultHTMLPageLayout>Grid</DefaultHTMLPageLayout>
+    <DefaultTargetSchema>IE50</DefaultTargetSchema>
+    <DelaySign>false</DelaySign>
+    <OutputType>Library</OutputType>
+    <OptionCompare>Binary</OptionCompare>
+    <OptionExplicit>On</OptionExplicit>
+    <OptionStrict>Off</OptionStrict>
+    <RootNamespace>Mms_ManagementAgent_GKFIMIDMExtensions</RootNamespace>
+    <StartupObject />
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <MyType>Windows</MyType>
+    <UpgradeBackupLocation />
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <OutputPath>bin\Debug\</OutputPath>
+    <DocumentationFile />
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>true</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>true</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn />
+    <DebugType>full</DebugType>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <OutputPath>bin\Release\</OutputPath>
+    <DocumentationFile />
+    <BaseAddress>285212672</BaseAddress>
+    <ConfigurationOverrideFile />
+    <DefineConstants />
+    <DefineDebug>false</DefineDebug>
+    <DefineTrace>true</DefineTrace>
+    <DebugSymbols>false</DebugSymbols>
+    <Optimize>false</Optimize>
+    <RegisterForComInterop>false</RegisterForComInterop>
+    <RemoveIntegerChecks>false</RemoveIntegerChecks>
+    <TreatWarningsAsErrors>false</TreatWarningsAsErrors>
+    <WarningLevel>4</WarningLevel>
+    <NoWarn />
+    <DebugType>none</DebugType>
+    <CodeAnalysisRuleSet>AllRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="log4net">
+      <HintPath>..\dependencies\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.MetadirectoryServicesEx">
+      <HintPath>..\dependencies\Microsoft.MetadirectoryServicesEx.dll</HintPath>
+    </Reference>
+    <Reference Include="System">
+      <Name>System</Name>
+    </Reference>
+    <Reference Include="System.Data">
+      <Name>System.Data</Name>
+    </Reference>
+    <Reference Include="System.Xml">
+      <Name>System.XML</Name>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="FIMAdapters\CSEntryAdapter.cs" />
+    <Compile Include="FIMAdapters\IFIMDirectoryObject.cs" />
+    <Compile Include="FIMAdapters\MVEntryAdapter.cs" />
+    <Compile Include="GKAbstractFIMExtension.cs" />
+    <Compile Include="MultiValueFiltering\IMultiValueFilter.cs" />
+    <Compile Include="MultiValueFiltering\MultiValueNoFilter.cs" />
+    <Compile Include="MultiValueFiltering\MultiValueRegexFilter.cs" />
+    <Compile Include="ObjectFiltering\IteratorFilter.cs" />
+    <Compile Include="ValueConversion\ValueBase64Encoder.cs" />
+    <Compile Include="GKFIMIDMExtensions.cs" />
+    <Compile Include="GKMVExtension.cs" />
+    <Compile Include="ValueCalculation\ConversionValueCalculator.cs" />
+    <Compile Include="ValueCalculation\ValueCalculatorConcatenator.cs" />
+    <Compile Include="ValueConversion\ValueDNEscaper.cs" />
+    <Compile Include="ValueConversion\ValueMapper.cs" />
+    <Compile Include="MAProvisioner.cs" />
+    <Compile Include="ValueCalculation\AttributeValueCalculator.cs" />
+    <Compile Include="ValueCalculation\ConstantValueCalculator.cs" />
+    <Compile Include="ValueCalculation\IValueCalculator.cs" />
+    <Compile Include="ValueConversion\ValueRegexReplacer.cs" />
+    <Compile Include="ValueConversion\ValueUniquer.cs" />
+    <Compile Include="ObjectFiltering\AttributeValueFilter.cs" />
+    <Compile Include="ObjectFiltering\IObjectFilter.cs" />
+    <Compile Include="ObjectFiltering\ObjectTypeFilter.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="GKFIMIDMExtensions.xml">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="GKMVExtension.xml">
+      <SubType>Designer</SubType>
+    </Content>
+  </ItemGroup>
+  <Import Project="$(MSBuildBinPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <PreBuildEvent />
+    <PostBuildEvent />
+  </PropertyGroup>
+</Project>

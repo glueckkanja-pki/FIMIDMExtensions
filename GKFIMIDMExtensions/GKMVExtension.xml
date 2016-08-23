@@ -1,0 +1,29 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<mvextension-properties>
+  <converters>
+    <value-converter name="base64encoder" type="base64" />
+    <value-converter name="escapedn" type="escapedn" />
+  </converters>
+  <calculators>
+      <value-calculator type="concatenator" name="dnConcatenator">
+        <value-calculator type="constant">CN=</value-calculator>
+        <value-calculator type="convert" converter="escapedn">
+          <value-calculator type="attribute">cn</value-calculator>
+        </value-calculator>
+        <!-- this comment must be ignored -->
+        <value-calculator type="constant">,</value-calculator>
+        <value-calculator type="attribute">location</value-calculator>
+      </value-calculator>
+  </calculators>
+  <provisioning>
+    <!-- cs entries are created in each target-ma if  -->
+    <target-ma name="XY AD MA">
+      <filter type="and">
+        <filter type="objecttype">person</filter>
+        <filter type="attribute" attribute="MandantID">^1[0-9]$</filter>
+      </filter>
+      <target-object-type>user</target-object-type>
+      <dn calculator="dnConcatenator" attribute="DN" />
+    </target-ma>
+  </provisioning>
+</mvextension-properties>
